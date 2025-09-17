@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2r0ppso20rkj"]
+
+[ext_resource type="Script" uid="uid://bhvxchliulkj8" path="res://scripts/PowerShield.gd" id="1_u7hhm"]
+[ext_resource type="Texture2D" uid="uid://duf3pky0gpdnp" path="res://assets/gfx/bluebird-midflap.png" id="2_bk6i6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bk6i6"]
+radius = 20.0
+
+[node name="ShieldPickup" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_u7hhm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bk6i6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visibility_layer = 512
+texture = ExtResource("2_bk6i6")

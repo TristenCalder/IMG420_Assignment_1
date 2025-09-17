@@ -1,0 +1,56 @@
+[gd_scene load_steps=12 format=3 uid="uid://by6n0lb51s2p5"]
+
+[ext_resource type="Script" uid="uid://dhwpy00w20igv" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://dnnwl47cm7ik6" path="res://scenes/bird.tscn" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://bprp7qyfri661" path="res://scenes/PauseMenu.tscn" id="2_tefeu"]
+[ext_resource type="Script" uid="uid://dudacy01r6etf" path="res://scripts/Bird.gd" id="3_tbgi4"]
+[ext_resource type="Script" uid="uid://ct68qlce51yvo" path="res://scripts/PipeSpawner.gd" id="5_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://fl3orihp23y7" path="res://assets/gfx/Bird/redbird-midflap.png" id="5_tipki"]
+[ext_resource type="Texture2D" uid="uid://bsndptm6lp75h" path="res://assets/gfx/Bird/redbird-upflap.png" id="6_85g3d"]
+[ext_resource type="Texture2D" uid="uid://bjhsxddenb43r" path="res://assets/gfx/Bird/redbird-downflap.png" id="7_choun"]
+[ext_resource type="PackedScene" uid="uid://bslgeeytieg8n" path="res://scenes/Background.tscn" id="9_85g3d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o6xl0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ya4ey"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_tipki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_85g3d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_choun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tipki")
+}],
+"loop": true,
+"name": &"Flap",
+"speed": 5.0
+}]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_o5qli")
+
+[node name="Background" parent="." instance=ExtResource("9_85g3d")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_tefeu")]
+
+[node name="Bird" parent="." instance=ExtResource("2_jyhfs")]
+position = Vector2(100, 0)
+script = ExtResource("3_tbgi4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bird"]
+shape = SubResource("CircleShape2D_o6xl0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bird"]
+sprite_frames = SubResource("SpriteFrames_ya4ey")
+animation = &"Flap"
+frame = 1
+frame_progress = 0.56204
+
+[node name="PipeSpawner" type="Node2D" parent="."]
+script = ExtResource("5_tbgi4")

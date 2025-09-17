@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://crpvh0vrdokol"]
+
+[ext_resource type="Script" uid="uid://ddrhtt3txyiy7" path="res://scripts/HUD.gd" id="1_qpvh6"]
+
+[node name="HUD" type="CanvasLayer"]
+layer = 100
+follow_viewport_enabled = true
+script = ExtResource("1_qpvh6")
+
+[node name="ScoreLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "0"
+horizontal_alignment = 1
+
+[node name="ShieldLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+horizontal_alignment = 2
